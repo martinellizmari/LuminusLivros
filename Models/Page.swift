@@ -10,6 +10,6 @@ import Foundation
 /// A anatomia de uma página.
 struct Page: Decodable {
     let text: String?
-    let image: URL?
+    let imageURL: URL?
 }
 

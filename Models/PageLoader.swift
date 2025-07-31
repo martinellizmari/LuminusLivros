@@ -3,7 +3,7 @@ import Foundation
 final class PageLoader {
     static func loadPages(from filename: String) -> [Page] {
         // Caminho relativo ao bundle principal
-        guard let url = Bundle.main.url(forResource: filename, withExtension: "json", subdirectory: "Assets/Livros/AsFormigasEOGafanhoto") else {
+        guard let url = Bundle.main.url(forResource: filename, withExtension: "json") else {
             print("Arquivo não encontrado: \(filename).json")
             return []
         }

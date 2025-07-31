@@ -8,26 +8,20 @@
 import SwiftUI
 
 struct LivroView: View {
-    // Exemplo de páginas da história (você pode trocar pelo conteúdo real depois)
-    let paginas = [
-        "Era uma vez uma pequena aldeia cercada por montanhas...",
-        "Nessa aldeia vivia uma menina com um chapéu vermelho...",
-        "Um dia, ela decidiu visitar sua avó doente na floresta...",
-        "No caminho, encontrou um lobo que parecia amigável...",
-        "E assim começa a história do Chapéu Vermelho..."
-    ]
-
+    let paginas: [Page] = PageLoader.loadPages(from: "AsFormigasEOGafanhoto")
+    
     @State private var paginaAtual = 0
-
+    
     var body: some View {
         VStack {
-            Text(paginas[paginaAtual])
-                .font(.title2)
-                .padding()
-                .multilineTextAlignment(.center)
-
+            if paginas.indices.contains(paginaAtual) {
+                PageView(page: paginas[paginaAtual])
+            } else {
+                Text("Página não encontrada")
+            }
+            
             Spacer()
-
+            
             HStack {
                 Button(action: {
                     if paginaAtual > 0 {
@@ -38,9 +32,9 @@ struct LivroView: View {
                         .padding()
                 }
                 .disabled(paginaAtual == 0)
-
+                
                 Spacer()
-
+                
                 Button(action: {
                     if paginaAtual < paginas.count - 1 {
                         paginaAtual += 1
