@@ -6,14 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E02385812E3B5FC000368098 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E023857C2E3B5FC000368098 /* ContentView.swift */; };
+		E02385822E3B5FC000368098 /* LivrosLuminusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E023857D2E3B5FC000368098 /* LivrosLuminusApp.swift */; };
+		E032D7042E3A10D600C3C2BB /* LivroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E032D7032E3A10C900C3C2BB /* LivroView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		E023857C2E3B5FC000368098 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E023857D2E3B5FC000368098 /* LivrosLuminusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivrosLuminusApp.swift; sourceTree = "<group>"; };
 		E032D6F12E3A005800C3C2BB /* LivrosLuminus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivrosLuminus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E032D7032E3A10C900C3C2BB /* LivroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		E032D6F32E3A005800C3C2BB /* LivrosLuminus */ = {
+		E023856D2E3B5FB600368098 /* Assets */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LivrosLuminus;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E023858B2E3B604F00368098 /* Utils */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E023858C2E3B60D000368098 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -29,10 +48,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E02385872E3B5FD400368098 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E032D7032E3A10C900C3C2BB /* LivroView.swift */,
+				E023857C2E3B5FC000368098 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E032D6E82E3A005800C3C2BB = {
 			isa = PBXGroup;
 			children = (
-				E032D6F32E3A005800C3C2BB /* LivrosLuminus */,
+				E023858C2E3B60D000368098 /* Models */,
+				E023856D2E3B5FB600368098 /* Assets */,
+				E02385872E3B5FD400368098 /* Views */,
+				E023857D2E3B5FC000368098 /* LivrosLuminusApp.swift */,
+				E023858B2E3B604F00368098 /* Utils */,
 				E032D6F22E3A005800C3C2BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +93,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				E032D6F32E3A005800C3C2BB /* LivrosLuminus */,
+				E023856D2E3B5FB600368098 /* Assets */,
+				E023858B2E3B604F00368098 /* Utils */,
+				E023858C2E3B60D000368098 /* Models */,
 			);
 			name = LivrosLuminus;
 			packageProductDependencies = (
@@ -119,6 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02385812E3B5FC000368098 /* ContentView.swift in Sources */,
+				E02385822E3B5FC000368098 /* LivrosLuminusApp.swift in Sources */,
+				E032D7042E3A10D600C3C2BB /* LivroView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
