@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LibraryView.swift
 //  LivrosLuminus
 //
 //  Created by Mariana Amábile Martinelli on 30/07/25.
@@ -7,20 +7,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LibraryView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                NavigationLink(destination: LivroView()) {
-                    Image("capalivro") // substitua por nome correto da sua imagem
+                Spacer()
+                
+                NavigationLink(destination: EscolhaVersaoView()) {
+                    Image("capalivro")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 300)
+                        .frame(maxWidth: 400, maxHeight: 600)
                         .shadow(radius: 10)
                 }
                 .buttonStyle(PlainButtonStyle())
+                
+                Spacer()
             }
             .navigationTitle("Biblioteca")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

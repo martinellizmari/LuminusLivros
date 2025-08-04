@@ -8,53 +8,42 @@
 import SwiftUI
 
 struct LivroView: View {
-    let paginas: [Page] = PageLoader.loadPages(from: "AsFormigasEOGafanhoto")
-    
+    let paginas: [String]
+    let titulo: String
     @State private var paginaAtual = 0
-    
+
     var body: some View {
-        VStack {
-            if paginas.indices.contains(paginaAtual) {
-                PageView(page: paginas[paginaAtual])
-            } else {
-                Text("Página não encontrada")
-            }
-            
-            Spacer()
-            
+        ZStack {
+            FullImageView(imageName: paginas[paginaAtual])
+
             HStack {
                 Button(action: {
-                    if paginaAtual > 0 {
-                        paginaAtual -= 1
-                    }
+                    if paginaAtual > 0 { paginaAtual -= 1 }
                 }) {
                     Image(systemName: "chevron.left")
                         .padding()
+                        .background(Color.black.opacity(0.5))
+                        .clipShape(Circle())
                 }
                 .disabled(paginaAtual == 0)
-                
+
                 Spacer()
-                
+
                 Button(action: {
-                    if paginaAtual < paginas.count - 1 {
-                        paginaAtual += 1
-                    }
+                    if paginaAtual < paginas.count - 1 { paginaAtual += 1 }
                 }) {
                     Image(systemName: "chevron.right")
                         .padding()
+                        .background(Color.black.opacity(0.5))
+                        .clipShape(Circle())
                 }
                 .disabled(paginaAtual == paginas.count - 1)
             }
             .font(.largeTitle)
-            .padding()
+            .padding(.horizontal, 30)
+            .padding(.vertical, 50)
         }
-        .onAppear {
-            OrientationManager.lockOrientation(.landscape)
-        }
-        .onDisappear {
-            OrientationManager.lockOrientation(.portrait)
-        }
-        .navigationTitle("Livro")
+        .navigationTitle(titulo)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
