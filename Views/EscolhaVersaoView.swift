@@ -37,6 +37,16 @@ struct EscolhaVersaoView: View {
             }
             .buttonStyle(PlainButtonStyle())
 
+            NavigationLink(destination: PlayerView(audioFileName: "As Formigas e o Gafanhoto", coverImageName: "capalivro")) {
+                Text("Ouça a história")
+                    .font(.title2)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.purple.opacity(0.2))
+                    .cornerRadius(12)
+            }
+            .buttonStyle(PlainButtonStyle())
+
             Spacer()
         }
         .padding(.horizontal, 40)
