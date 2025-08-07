@@ -5,15 +5,29 @@ struct PlayerView: View {
     let audioFileName: String
     let coverImageName: String
 
-    @State private var audioPlayer: AVAudioPlayer?
-    @State private var isPlaying = false
-    @State private var progress: Double = 0.0
-    @State private var duration: Double = 1.0
-    @State private var timer: Timer?
+    @StateObject private var viewModel = PlayerViewModel()
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         VStack(spacing: 32) {
+            // Botão voltar no topo
+            HStack {
+                Button("Voltar") {
+                    dismiss()
+                }
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.black.opacity(0.5))
+                .cornerRadius(8)
+                
+                Spacer()
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
+            
             Spacer()
+            
+            // Capa do livro (pequena)
             Image(coverImageName)
                 .resizable()
                 .scaledToFit()
@@ -21,89 +35,35 @@ struct PlayerView: View {
                 .cornerRadius(16)
                 .shadow(radius: 10)
 
-            Slider(value: $progress, in: 0...duration, onEditingChanged: sliderChanged)
-                .accentColor(.blue)
+            // Controles de áudio
+            VStack(spacing: 20) {
+                Slider(value: $viewModel.progress, in: 0...viewModel.duration, onEditingChanged: viewModel.sliderChanged)
+                    .accentColor(.blue)
 
-            HStack(spacing: 40) {
-                Button(action: togglePlayPause) {
-                    Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                        .resizable()
-                        .frame(width: 64, height: 64)
-                        .foregroundColor(.blue)
+                HStack(spacing: 40) {
+                    Button(action: viewModel.togglePlayPause) {
+                        Image(systemName: viewModel.isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                            .resizable()
+                            .frame(width: 64, height: 64)
+                            .foregroundColor(.blue)
+                    }
                 }
             }
+            .padding(.horizontal, 40)
+            
             Spacer()
         }
-        .padding()
-        .onAppear(perform: setupAudio)
-        .onDisappear(perform: stopAudio)
-    }
-
-    func setupAudio() {
-        if let url = Bundle.main.url(forResource: audioFileName, withExtension: "m4a") {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                duration = audioPlayer?.duration ?? 1.0
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.delegate = AVAudioPlayerDelegateProxy { finished in
-                    isPlaying = false
-                }
-                startTimer()
-            } catch {
-                print("Erro ao carregar áudio: \(error)")
-            }
+        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .tabBar)
+        .onAppear {
+            viewModel.setupAudio(audioFileName: audioFileName)
+        }
+        .onDisappear {
+            viewModel.stopAudio()
         }
     }
 
-    func togglePlayPause() {
-        guard let player = audioPlayer else { return }
-        if isPlaying {
-            player.pause()
-            stopTimer()
-        } else {
-            player.play()
-            startTimer()
-        }
-        isPlaying.toggle()
-    }
-
-    func sliderChanged(editing: Bool) {
-        guard let player = audioPlayer else { return }
-        if !editing {
-            player.currentTime = progress
-            if isPlaying {
-                player.play()
-            }
-        }
-    }
-
-    func startTimer() {
-        stopTimer()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            if let player = audioPlayer {
-                progress = player.currentTime
-            }
-        }
-    }
-
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-
-    func stopAudio() {
-        audioPlayer?.stop()
-        stopTimer()
-    }
+    // Funções movidas para PlayerViewModel
 }
 
-// Proxy para delegate do AVAudioPlayer (para SwiftUI)
-class AVAudioPlayerDelegateProxy: NSObject, AVAudioPlayerDelegate {
-    var didFinish: ((Bool) -> Void)?
-    init(didFinish: ((Bool) -> Void)? = nil) {
-        self.didFinish = didFinish
-    }
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        didFinish?(flag)
-    }
-}
+// AVAudioPlayerDelegateProxy movido para PlayerViewModel
