@@ -13,7 +13,8 @@ struct LivrosLuminusApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LibraryView()
+            HomeView()
+                .statusBarHidden(true)
         }
     }
 }
