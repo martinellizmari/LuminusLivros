@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct EscolhaVersaoView: View {
+    let book: Book
+    
     var body: some View {
         VStack(spacing: 40) {
             Text("Escolha a versão da história")
@@ -9,8 +11,8 @@ struct EscolhaVersaoView: View {
 
             NavigationLink(
                 destination: LivroView(
-                    paginas: AsFormigasEOGafanhoto.paginasOriginal,
-                    titulo: AsFormigasEOGafanhoto.titulo
+                    paginas: book.originalPages,
+                    titulo: book.title
                 )
             ) {
                 Text("Versão original")
@@ -24,8 +26,8 @@ struct EscolhaVersaoView: View {
 
             NavigationLink(
                 destination: LivroView(
-                    paginas: AsFormigasEOGafanhoto.paginasAdaptada,
-                    titulo: AsFormigasEOGafanhoto.titulo
+                    paginas: book.adaptedPages,
+                    titulo: book.title
                 )
             ) {
                 Text("Versão adaptada")
@@ -37,7 +39,7 @@ struct EscolhaVersaoView: View {
             }
             .buttonStyle(PlainButtonStyle())
 
-            NavigationLink(destination: PlayerView(audioFileName: "As Formigas e o Gafanhoto", coverImageName: "capalivro")) {
+            NavigationLink(destination: PlayerView(audioFileName: book.audioFile, coverImageName: book.coverImage)) {
                 Text("Ouça a história")
                     .font(.title2)
                     .frame(maxWidth: .infinity)
