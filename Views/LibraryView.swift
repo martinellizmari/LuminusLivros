@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct LibraryView: View {
+    @StateObject private var viewModel = LibraryViewModel()
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                Spacer()
-                
-                NavigationLink(destination: EscolhaVersaoView()) {
-                    Image("capalivro")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 400, maxHeight: 600)
-                        .shadow(radius: 10)
+            Group {
+                if viewModel.isLoading {
+                    ProgressView("Carregando biblioteca...")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: [
+                            GridItem(.adaptive(minimum: 250, maximum: 300))
+                        ], spacing: 20) {
+                            ForEach(viewModel.books) { book in
+                                NavigationLink(destination: EscolhaVersaoView(book: book)) {
+                                    BookCardView(book: book)
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                        .padding()
+                    }
                 }
-                .buttonStyle(PlainButtonStyle())
-                
-                Spacer()
             }
             .navigationTitle("Biblioteca")
             .navigationBarTitleDisplayMode(.large)
