@@ -5,19 +5,30 @@ App de baixo estímulo para iPad, com histórias clássicas para adultos lerem p
 ## Situação do Projeto
 Em desenvolvimento inicial. O app já exibe a biblioteca, permite escolher a versão do livro e navegar pelas páginas diagramadas.
 
-## Features (To-Do List)
-- [x] Biblioteca com capa do livro
-- [x] Escolha entre versão original e adaptada
-- [x] Exibição de páginas diagramadas em fullscreen
-- [x] Navegação entre páginas
-- [x] Orientação fixa em landscape
-- [x] Estrutura pronta para múltiplos livros
-- [ ] Adicionar player de áudio para narração
-- [ ] Suporte a múltiplos livros na biblioteca
-- [ ] Tela de configurações/acessibilidade
-- [ ] Melhorias visuais e animações
-- [ ] Testes e ajustes finais para publicação
+## Equipe
 
----
+### Mariana – Desenvolvimento, Conteúdo e Direção do Projeto
+Mariana é fonoaudióloga especialista em comunicação alternativa e cofundadora da Luminus. No projeto, é responsável por:
 
-Sinta-se à vontade para contribuir ou sugerir melhorias!
+Direção geral e gestão do desenvolvimento do aplicativo.
+
+Adaptação das histórias para versões acessíveis, incluindo simplificação de texto, uso de pictogramas e escolha de fontes adequadas para dislexia.
+
+Planejamento da arquitetura do app e esboço das telas, unindo princípios de baixo estímulo visual e acessibilidade.
+
+Programação e implementação das funcionalidades no iOS, usando o projeto como parte de seu processo de aprendizado em desenvolvimento mobile.
+
+Coordenação do fluxo de trabalho com a ilustradora e demais colaboradores, garantindo que prazos e padrões de qualidade sejam cumpridos.
+
+### Nicole – Ilustração e Design
+Nicole é fonoaudióloga e ilustradora, cofundadora da Luminus, e responsável por toda a direção de arte do projeto. Suas atribuições incluem:
+
+Criação das ilustrações originais para todas as histórias, seguindo o estilo visual definido (bucólico, aquarela, cores suaves e baixo estímulo).
+
+Diagramação das páginas em diferentes formatos (versão original e versão adaptada com pictogramas).
+
+Preparação e otimização dos arquivos para uso no aplicativo, garantindo qualidade visual e performance.
+
+Colaboração no processo criativo, contribuindo para as decisões de layout, paleta de cores, composição das cenas e adaptação visual das histórias.
+
+Gestão dos assets visuais no pacote Adobe Creative Cloud, organizando bibliotecas e garantindo consistência gráfica entre todos os elementos.
