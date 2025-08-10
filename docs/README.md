@@ -16,6 +16,7 @@ Assistentes especializados que o Maestro conecta você:
 - **[Product Manager](./agents/ProductManager.md)** - Priorização para Mariana
 - **[Sprint Planner](./agents/SprintPlanner.md)** - Planejamento semanal
 - **[UX Guide](./agents/UXGuide.md)** - Orientação UX/UI para Nicole
+- **[Desenhista das Palavras](./agents/DesenhistaDasPalavras.md)** - Expert em descrição visual e história da arte
 
 ### 📋 [Processos](./processes/)
 Workflows e metodologias da equipe:
@@ -35,6 +36,12 @@ Modelos prontos para usar:
 - **[Decisão](./templates/Decisao.md)** - Template de decisão
 - **[Retrospectiva](./templates/Retrospectiva.md)** - Template de retro
 
+### 📅 [Sprints](./sprints/)
+Planejamento e histórico de sprints semanais:
+- **[Sprint Template](./sprints/templates/SprintSemanal.md)** - Template para nova sprint
+- **[Sprint Atual](./sprints/Sprint-2025-08-12.md)** - Sprint ativa (exemplo)
+- **[Como usar Sprints](./sprints/README.md)** - Workflow completo
+
 ---
 
 ## 🚀 Quick Start
@@ -52,9 +59,10 @@ Modelos prontos para usar:
 
 **Exemplos práticos:**
 - "Vamos trabalhar em **priorizar** tarefas" → [Product Manager](./agents/ProductManager.md)
-- "Vamos **planejar** a semana" → [Executive Plan](./ExecutivePlan.md)
+- "Vamos **planejar** a sprint da semana" → [Executive Plan](./ExecutivePlan.md) + [Sprint Template](./sprints/templates/SprintSemanal.md)
 - "Estou criando um **wireframe**" → [UX Guide](./agents/UXGuide.md)
 - "Preciso decidir sobre **lançamento**" → [Business Analyst](./agents/BusinessAnalyst.md)
+- "Vamos **descrever** uma ilustração" → [Desenhista das Palavras](./agents/DesenhistaDasPalavras.md)
 
 ---
 
